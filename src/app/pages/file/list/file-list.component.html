@@ -8,6 +8,16 @@
 <div>
   <div *ngFor="let group of files" >
     <h1>{{group.ext}} Files</h1>
-    <ev-table [columns]="columns" [data]="group.files"></ev-table>
+    <ev-table [columns]="columns" [data]="group.files">
+
+    </ev-table>
+
   </div>
 </div>
+
+<!-- Template for file link -->
+<ng-template #fileLink let-item = "item" let-column="column" >
+  <a target="_blank" [href]="item.link"  style="text-decoration: underline; cursor: pointer">
+    {{item.name}}
+  </a>
+</ng-template>

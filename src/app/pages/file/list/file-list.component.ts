@@ -15,13 +15,10 @@ import {Router} from "@angular/router";
 })
 export class FileListComponent implements OnInit
 {
+  @ViewChild('fileLink', {static: true}) fileLink: TemplateRef<any>;
   uploadFilePost: UploadFilePost;
   files: any[];
-  columns: ColumnModel[] = [
-    {key: "name", title: "File Name"},
-    {key: "size", title: "File Size"},
-    {key: "uploadedAt", title: "File Upload Date"}
-  ];
+  columns: ColumnModel[];
 
 
   constructor( private fileService: FileService, private router: Router )
@@ -31,7 +28,13 @@ export class FileListComponent implements OnInit
 
   ngOnInit(): void
   {
+    this.columns = [
+      {key: "name", title: "File Name", template: this.fileLink},
+      {key: "size", title: "File Size"},
+      {key: "uploadedAt", title: "File Upload Date"}
+    ];
     this.listFiles();
+
   }
 
   listFiles()
