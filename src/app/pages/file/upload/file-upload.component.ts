@@ -26,31 +26,6 @@ export class FileUploadComponent
 
   }
 
-  // file input change event handler
-  fileChange(e: any): void {
-    this.readThis(e.target);
-  }
-
-  // reading the file chosen from file input
-  readThis(inputValue: any): void {
-    if (inputValue.files && inputValue.files.length > 0)
-    {
-      let file: File = inputValue.files[0];
-      let fileReader: FileReader = new FileReader();
-      let that = this;
-      this.uploadFilePost = new UploadFilePost();
-      this.uploadFilePost.size = file.size;
-      this.uploadFilePost.name = file.name.split(".")[0];
-      this.uploadFilePost.ext = <string>file.name.split('.').pop();
-      fileReader.onloadend = function (e) {
-        that.uploadFilePost.content = <string>fileReader.result;
-      }
-
-      fileReader.readAsDataURL(file);
-    }
-
-  }
-
   uploadFile() {
     this.isUploading = true; // To Disable the button while a request in progress
 
