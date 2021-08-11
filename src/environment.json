@@ -1,0 +1,4 @@
+{
+    "testUrl": "https://localhost:44350/api/",
+    "prodUrl": "https://localhost:44350/api/"
+}

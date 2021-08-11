@@ -1,0 +1,23 @@
+
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th *ngFor="let c of columns" >
+          {{c.title}}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of data" >
+        <td *ngFor="let c of columns" >
+          <ng-container *ngIf="c.template; else notTemplate"  [ngTemplateOutlet]="c.template" [ngTemplateOutletContext]="{item:item, column:c}">
+          </ng-container>
+          <ng-template #notTemplate >
+            {{item[c.key]}}
+          </ng-template>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

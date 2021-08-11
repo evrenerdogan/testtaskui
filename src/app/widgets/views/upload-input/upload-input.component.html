@@ -1,0 +1,9 @@
+<div style="padding-bottom: 10px">
+  <button class="ev-btn" (click)="fileInput.click()">
+    Choose File
+  </button>
+  <div style="min-width: 100px; display: inline-block; padding: 10px">
+    {{fileObj?.name }}{{fileObj && fileObj.name ? "." : ""}}{{fileObj?.ext}}
+  </div>
+  <input  #fileInput type="file" (change) = "fileChange($event)" style="display: none" />
+</div>

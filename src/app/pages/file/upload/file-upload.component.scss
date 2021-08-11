@@ -1,0 +1,15 @@
+ev-file-upload
+{
+  .container
+  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    .upload-container
+    {
+      display: inline-block;
+    }
+  }
+
+}

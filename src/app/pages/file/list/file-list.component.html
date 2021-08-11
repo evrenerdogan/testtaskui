@@ -1,0 +1,13 @@
+
+<div>
+  <button class="ev-btn" (click)="goToUploadPage()" >
+    Add New File
+  </button>
+</div>
+
+<div>
+  <div *ngFor="let group of files" >
+    <h1>{{group.ext}} Files</h1>
+    <ev-table [columns]="columns" [data]="group.files"></ev-table>
+  </div>
+</div>
